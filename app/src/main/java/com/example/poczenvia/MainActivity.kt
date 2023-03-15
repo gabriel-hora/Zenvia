@@ -9,6 +9,10 @@ import com.example.poczenvia.data.network.repository.RepositoryCall
 import com.example.poczenvia.databinding.ActivityMainBinding
 import com.example.poczenvia.data.network.ViewModelProvider
 import com.example.poczenvia.data.network.response.OriginRequest
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.ktx.Firebase
+import java.time.LocalDateTime
 
 class MainActivity : AppCompatActivity() {
 
@@ -28,8 +32,7 @@ class MainActivity : AppCompatActivity() {
 
         viewModel.call.observe(this, Observer {
             if (it.isSuccessful) {
-                Toast.makeText(this, "OK", Toast.LENGTH_LONG).show()
-                Log.i("messagem", it.body().toString())
+                saveDataId(it.body()?.dados?.id.toString())
             } else {
                 Toast.makeText(this, "error", Toast.LENGTH_LONG).show()
                 Log.i("messagem", it.body().toString())
@@ -39,20 +42,32 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun callFast() {
-        // val current = LocalDateTime.now()
+        val current = LocalDateTime.now()
         binding.btnCallFast.setOnClickListener {
             viewModel.pushCallFast(
                 OriginRequest(
                     numeroOrigem = "11977527475",
-                    numeroDestino = "11971587577",
-                    dataCriacao = null,
-                    gravarAudio = null,
+                    numeroDestino = "11971587575",
+                    dataCriacao = current,
+                    gravarAudio = true,
                     binaOrigem = null,
                     binaDestino = null,
                     tags = null,
                     detectaCaixaOrigem = null
                 )
             )
+        }
+    }
+
+    private fun saveDataId(idCall: String) {
+        if (idCall != null) {
+            val ref: DatabaseReference = FirebaseDatabase.getInstance().reference
+
+            val idFirebase = ref.push().key
+
+            if (idFirebase != null) {
+                ref.child("user").child(idFirebase).setValue(idCall)
+            }
         }
     }
 }

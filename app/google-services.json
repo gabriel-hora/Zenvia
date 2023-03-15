@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "865449272152",
+    "project_id": "poc-zenvia",
+    "storage_bucket": "poc-zenvia.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:865449272152:android:5f99d310d11b4fb892bb2d",
+        "android_client_info": {
+          "package_name": "com.example.poczenvia"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "865449272152-625jdmvreherppcmlv8p6i80f7ag9p11.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBtr-lKboSThCDBSBRHSTq6l-jAunTo6wk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "865449272152-625jdmvreherppcmlv8p6i80f7ag9p11.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
