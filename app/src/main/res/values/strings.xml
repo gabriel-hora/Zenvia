@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">PoC Zenvia</string>
+    <string name="digite_seu_telefone">Digite seu telefone</string>
+    <string name="ligar">LIGAR</string>
+    <string name="call_complete">Ligar (Completo)</string>
+    <string name="digite_o_telefone_de_destino">Digite o telefone de destino</string>
+    <string name="ligar_opcional">Ligar (Opcional)</string>
+</resources>
