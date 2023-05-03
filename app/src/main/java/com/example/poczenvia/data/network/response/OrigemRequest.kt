@@ -4,27 +4,18 @@ import com.google.gson.annotations.SerializedName
 import java.time.LocalDateTime
 
 data class OriginRequest(
-    @SerializedName("numero_origem")
-    var numeroOrigem: String,
+    @SerializedName("tipo")
+    var tipo: String,
 
-    @SerializedName("numero_destino")
-    var numeroDestino: String,
+    @SerializedName("idRamal")
+    var id_ramal: Int,
 
-    @SerializedName("data_criacao")
-    var dataCriacao: LocalDateTime?,
+    @SerializedName("ramal")
+    var ramal: String,
 
-    @SerializedName("gravar_audio")
-    var gravarAudio: Boolean?,
+    @SerializedName("ligarPara")
+    var ligar_para: String,
 
-    @SerializedName("bina_origem")
-    var binaOrigem: String?,
-
-    @SerializedName("bina_destino")
-    var binaDestino: String?,
-
-    @SerializedName("tags")
-    var tags: String?,
-
-    @SerializedName("detecta_caixa_origem")
-    var detectaCaixaOrigem: Boolean?
+    @SerializedName("fecharFim")
+    var fechar_fim: Boolean
 )

@@ -5,4 +5,6 @@
     <string name="call_complete">Ligar (Completo)</string>
     <string name="digite_o_telefone_de_destino">Digite o telefone de destino</string>
     <string name="ligar_opcional">Ligar (Opcional)</string>
+    <string name="historic">Histórico</string>
+    <string name="historico_de_chamadas">Histórico de chamadas</string>
 </resources>

@@ -1,7 +1,7 @@
 package com.example.poczenvia.data.network
 
 import androidx.lifecycle.ViewModel
-import com.example.poczenvia.MainViewModel
+import com.example.poczenvia.data.network.ui.MainViewModel
 import com.example.poczenvia.data.network.repository.RepositoryCall
 
 @Suppress("UNCHECKED_CAST")

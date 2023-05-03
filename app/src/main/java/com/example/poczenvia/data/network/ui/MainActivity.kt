@@ -1,17 +1,18 @@
-package com.example.poczenvia
+package com.example.poczenvia.data.network.ui
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
+import com.example.poczenvia.data.network.ui.MainViewModel
 import com.example.poczenvia.data.network.repository.RepositoryCall
 import com.example.poczenvia.databinding.ActivityMainBinding
 import com.example.poczenvia.data.network.ViewModelProvider
 import com.example.poczenvia.data.network.response.OriginRequest
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
-import com.google.firebase.ktx.Firebase
 import java.time.LocalDateTime
 
 class MainActivity : AppCompatActivity() {
@@ -32,7 +33,8 @@ class MainActivity : AppCompatActivity() {
 
         viewModel.call.observe(this, Observer {
             if (it.isSuccessful) {
-                saveDataId(it.body()?.dados?.id.toString())
+                it.body()?.dados?.let { it1 -> Log.i("messagem", it1.url) }
+                binding.idUrl.text = it.body()?.dados?.url
             } else {
                 Toast.makeText(this, "error", Toast.LENGTH_LONG).show()
                 Log.i("messagem", it.body().toString())
@@ -42,19 +44,13 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun callFast() {
-        val current = LocalDateTime.now()
         binding.btnCallFast.setOnClickListener {
             viewModel.pushCallFast(
-                OriginRequest(
-                    numeroOrigem = "11977527475",
-                    numeroDestino = "11971587575",
-                    dataCriacao = current,
-                    gravarAudio = true,
-                    binaOrigem = null,
-                    binaDestino = null,
-                    tags = null,
-                    detectaCaixaOrigem = null
-                )
+                "embedded",
+                716148,
+                "4000",
+                "11977527475",
+                false
             )
         }
     }
