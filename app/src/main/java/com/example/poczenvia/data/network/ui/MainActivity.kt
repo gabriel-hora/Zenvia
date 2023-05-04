@@ -1,6 +1,7 @@
 package com.example.poczenvia.data.network.ui
 
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
@@ -33,8 +34,11 @@ class MainActivity : AppCompatActivity() {
 
         viewModel.call.observe(this, Observer {
             if (it.isSuccessful) {
-                it.body()?.dados?.let { it1 -> Log.i("messagem", it1.url) }
-                binding.idUrl.text = it.body()?.dados?.url
+                it.body()?.dados?.let { it1 -> Log.i("urlZenMA", it1.url) }
+
+                val webPage = Uri.parse(it.body()?.dados?.url)
+                val intent = Intent(Intent.ACTION_VIEW, webPage)
+                startActivity(intent)
             } else {
                 Toast.makeText(this, "error", Toast.LENGTH_LONG).show()
                 Log.i("messagem", it.body().toString())
@@ -46,7 +50,7 @@ class MainActivity : AppCompatActivity() {
     private fun callFast() {
         binding.btnCallFast.setOnClickListener {
             viewModel.pushCallFast(
-                "embedded",
+                "floating",
                 716148,
                 "4000",
                 "11977527475",

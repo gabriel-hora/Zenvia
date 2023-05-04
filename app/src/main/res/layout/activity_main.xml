@@ -58,26 +58,4 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
-
-    <Button
-        android:id="@+id/btn_historic"
-        android:layout_width="200dp"
-        android:layout_height="60dp"
-        android:layout_marginBottom="25dp"
-        android:text="@string/historic"
-        app:layout_constraintBottom_toTopOf="@+id/btn_call_fast"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <TextView
-        android:id="@+id/id_url"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="url"
-        android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/container_telephone_2" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>
